@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct CheckThumbnail: View {
+    var check: Check
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(check.diagnosis.rawValue)
+                .font(.headline)
+                .foregroundStyle(check.diagnosis.colour)
+            
+            
+            Spacer()
+            
+            Text(check.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+        }
     }
 }
 
 #Preview {
-    CheckThumbnail()
+    CheckThumbnail(check: Check())
 }

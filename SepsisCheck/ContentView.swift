@@ -10,20 +10,22 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Query private var checks: [Check]
 
     var body: some View {
         NavigationSplitView {
             List {
-                ForEach(items) { item in
+                ForEach(checks) { check in
                     NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        CheckDetail(check: check)
                     } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        CheckThumbnail(check: check)
                     }
                 }
                 .onDelete(perform: deleteItems)
             }
+            .navigationTitle("History")
+            .navigationBarTitleDisplayMode(.inline)
 #if os(macOS)
             .navigationSplitViewColumnWidth(min: 180, ideal: 200)
 #endif
@@ -33,7 +35,7 @@ struct ContentView: View {
                     EditButton()
                 }
 #endif
-                ToolbarItem {
+                ToolbarItem(placement: .bottomBar) {
                     Button(action: addItem) {
                         Label("Add Item", systemImage: "plus")
                     }
@@ -46,7 +48,7 @@ struct ContentView: View {
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(timestamp: Date())
+            let newItem = Check()
             modelContext.insert(newItem)
         }
     }
@@ -54,7 +56,7 @@ struct ContentView: View {
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                modelContext.delete(items[index])
+                modelContext.delete(checks[index])
             }
         }
     }
@@ -62,5 +64,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: Check.self, inMemory: true)
 }

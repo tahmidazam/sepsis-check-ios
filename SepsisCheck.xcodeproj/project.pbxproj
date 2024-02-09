@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C66D09DB2B768B00004504F6 /* CheckDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66D09DA2B768B00004504F6 /* CheckDetail.swift */; };
 		C682AAD32B765B190052BE35 /* SepsisCheckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAD22B765B190052BE35 /* SepsisCheckApp.swift */; };
 		C682AAD52B765B190052BE35 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAD42B765B190052BE35 /* ContentView.swift */; };
-		C682AAD72B765B190052BE35 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAD62B765B190052BE35 /* Item.swift */; };
 		C682AAD92B765B1A0052BE35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C682AAD82B765B1A0052BE35 /* Assets.xcassets */; };
 		C682AADD2B765B1A0052BE35 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C682AADC2B765B1A0052BE35 /* Preview Assets.xcassets */; };
 		C682AAE72B765B1A0052BE35 /* SepsisCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAE62B765B1A0052BE35 /* SepsisCheckTests.swift */; };
 		C682AAF12B765B1A0052BE35 /* SepsisCheckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAF02B765B1A0052BE35 /* SepsisCheckUITests.swift */; };
 		C682AAF32B765B1A0052BE35 /* SepsisCheckUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAF22B765B1A0052BE35 /* SepsisCheckUITestsLaunchTests.swift */; };
+		C682AB002B765B490052BE35 /* Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAFF2B765B490052BE35 /* Check.swift */; };
+		C682AB022B7688330052BE35 /* CheckThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AB012B7688330052BE35 /* CheckThumbnail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C66D09DA2B768B00004504F6 /* CheckDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDetail.swift; sourceTree = "<group>"; };
 		C682AACF2B765B190052BE35 /* SepsisCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SepsisCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C682AAD22B765B190052BE35 /* SepsisCheckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepsisCheckApp.swift; sourceTree = "<group>"; };
 		C682AAD42B765B190052BE35 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C682AAD62B765B190052BE35 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C682AAD82B765B1A0052BE35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C682AADA2B765B1A0052BE35 /* SepsisCheck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SepsisCheck.entitlements; sourceTree = "<group>"; };
 		C682AADC2B765B1A0052BE35 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		C682AAEC2B765B1A0052BE35 /* SepsisCheckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SepsisCheckUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C682AAF02B765B1A0052BE35 /* SepsisCheckUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepsisCheckUITests.swift; sourceTree = "<group>"; };
 		C682AAF22B765B1A0052BE35 /* SepsisCheckUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepsisCheckUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C682AAFF2B765B490052BE35 /* Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check.swift; sourceTree = "<group>"; };
+		C682AB012B7688330052BE35 /* CheckThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckThumbnail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +103,9 @@
 			children = (
 				C682AAD22B765B190052BE35 /* SepsisCheckApp.swift */,
 				C682AAD42B765B190052BE35 /* ContentView.swift */,
-				C682AAD62B765B190052BE35 /* Item.swift */,
+				C66D09DA2B768B00004504F6 /* CheckDetail.swift */,
+				C682AB012B7688330052BE35 /* CheckThumbnail.swift */,
+				C682AAFF2B765B490052BE35 /* Check.swift */,
 				C682AAD82B765B1A0052BE35 /* Assets.xcassets */,
 				C682AADA2B765B1A0052BE35 /* SepsisCheck.entitlements */,
 				C682AADB2B765B1A0052BE35 /* Preview Content */,
@@ -262,8 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C66D09DB2B768B00004504F6 /* CheckDetail.swift in Sources */,
+				C682AB002B765B490052BE35 /* Check.swift in Sources */,
+				C682AB022B7688330052BE35 /* CheckThumbnail.swift in Sources */,
 				C682AAD52B765B190052BE35 /* ContentView.swift in Sources */,
-				C682AAD72B765B190052BE35 /* Item.swift in Sources */,
 				C682AAD32B765B190052BE35 /* SepsisCheckApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
