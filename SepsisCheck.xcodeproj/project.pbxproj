@@ -17,6 +17,9 @@
 		C682AAF32B765B1A0052BE35 /* SepsisCheckUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAF22B765B1A0052BE35 /* SepsisCheckUITestsLaunchTests.swift */; };
 		C682AB002B765B490052BE35 /* Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAFF2B765B490052BE35 /* Check.swift */; };
 		C682AB022B7688330052BE35 /* CheckThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AB012B7688330052BE35 /* CheckThumbnail.swift */; };
+		C6BF33832B77E7DC008E243B /* AgeBandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF33822B77E7DC008E243B /* AgeBandView.swift */; };
+		C6BF33852B77F646008E243B /* RespiratoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF33842B77F646008E243B /* RespiratoryView.swift */; };
+		C6BF33872B781678008E243B /* CardiovascularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF33862B781678008E243B /* CardiovascularView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		C682AAF22B765B1A0052BE35 /* SepsisCheckUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepsisCheckUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C682AAFF2B765B490052BE35 /* Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check.swift; sourceTree = "<group>"; };
 		C682AB012B7688330052BE35 /* CheckThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckThumbnail.swift; sourceTree = "<group>"; };
+		C6BF33822B77E7DC008E243B /* AgeBandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeBandView.swift; sourceTree = "<group>"; };
+		C6BF33842B77F646008E243B /* RespiratoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespiratoryView.swift; sourceTree = "<group>"; };
+		C6BF33862B781678008E243B /* CardiovascularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardiovascularView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +107,14 @@
 		C682AAD12B765B190052BE35 /* SepsisCheck */ = {
 			isa = PBXGroup;
 			children = (
+				C6BF33862B781678008E243B /* CardiovascularView.swift */,
 				C682AAD22B765B190052BE35 /* SepsisCheckApp.swift */,
 				C682AAD42B765B190052BE35 /* ContentView.swift */,
 				C66D09DA2B768B00004504F6 /* CheckDetail.swift */,
 				C682AB012B7688330052BE35 /* CheckThumbnail.swift */,
 				C682AAFF2B765B490052BE35 /* Check.swift */,
+				C6BF33822B77E7DC008E243B /* AgeBandView.swift */,
+				C6BF33842B77F646008E243B /* RespiratoryView.swift */,
 				C682AAD82B765B1A0052BE35 /* Assets.xcassets */,
 				C682AADA2B765B1A0052BE35 /* SepsisCheck.entitlements */,
 				C682AADB2B765B1A0052BE35 /* Preview Content */,
@@ -269,10 +278,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C66D09DB2B768B00004504F6 /* CheckDetail.swift in Sources */,
+				C6BF33872B781678008E243B /* CardiovascularView.swift in Sources */,
 				C682AB002B765B490052BE35 /* Check.swift in Sources */,
+				C6BF33852B77F646008E243B /* RespiratoryView.swift in Sources */,
 				C682AB022B7688330052BE35 /* CheckThumbnail.swift in Sources */,
 				C682AAD52B765B190052BE35 /* ContentView.swift in Sources */,
 				C682AAD32B765B190052BE35 /* SepsisCheckApp.swift in Sources */,
+				C6BF33832B77E7DC008E243B /* AgeBandView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

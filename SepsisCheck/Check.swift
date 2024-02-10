@@ -459,13 +459,15 @@ final class Check {
     }
     
     /// The age band of the individual, split into classes according to Table 1 of Schlapbach et al., 2024.
-    enum AgeBand: String, Codable {
+    enum AgeBand: String, Codable, CaseIterable, Identifiable {
         case lessThanOneMonth = "<1 mo"
         case oneToElevenMonths = "1 to <11 mo"
         case oneToTwoYears = "1 to <2 y"
         case twoToFiveYears = "2 to <5 y"
         case fiveToTwelveYears = "5 to <12 y"
         case twelveToSeventeenYears = "12 to 17 y"
+        
+        var id: Int { self.hashValue }
         
         /// Initialises the age band from a date of birth.
         /// - Parameter dateOfBirth: The date of birth of the individual.
