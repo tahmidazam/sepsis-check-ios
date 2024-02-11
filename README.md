@@ -11,7 +11,8 @@ Built for iOS with SwiftUI, SwiftData, and SwiftCharts.
 
 ## Acknowledgements
 
-- **Dr David Inwald**, Emmanuel College, University of Cambridge
+- **Dr David Inwald**
+Emmanuel College, University of Cambridge
 
 ---
 **Tahmid Azam**
