@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) private var modelContext
     @Query private var checks: [Check]
 
@@ -38,6 +39,12 @@ struct ContentView: View {
                 ToolbarItem(placement: .bottomBar) {
                     Button(action: addItem) {
                         Label("Add Item", systemImage: "plus")
+                    }
+                }
+                
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close") {
+                        dismiss()
                     }
                 }
             }

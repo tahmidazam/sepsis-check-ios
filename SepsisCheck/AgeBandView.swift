@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct AgeBandView: View {
-    @Environment(\.dismiss) var dismiss
-    
     @Binding var check: Check
     
     @State var ageBand: Check.AgeBand = .lessThanOneMonth
     @State var dateOfBirth: Date = Date()
     
     @State var inputMethod: InputMethod = .bandSelection
+    
+    @State var historyIsPresented = false
     
     enum InputMethod: CaseIterable, Identifiable {
         case bandSelection
@@ -112,7 +112,7 @@ struct AgeBandView: View {
             }
             .padding()
         }
-        .navigationTitle("Age")
+        .navigationTitle("New Check")
         .navigationBarTitleDisplayMode(.inline)
         .onDisappear {
             if inputMethod == .dateOfBirthEntry {
@@ -122,9 +122,9 @@ struct AgeBandView: View {
             check.ageBand = ageBand
         }
         .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                Button("Cancel") {
-                    dismiss()
+            ToolbarItem(placement: .topBarLeading) {
+                Button("History", systemImage: "clock") {
+                    historyIsPresented.toggle()
                 }
             }
             
@@ -139,6 +139,9 @@ struct AgeBandView: View {
                     .labelStyle(.titleOnly)
                 }
             }
+        }
+        .sheet(isPresented: $historyIsPresented) {
+            ContentView()
         }
     }
     

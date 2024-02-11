@@ -12,18 +12,19 @@ struct CardiovascularView: View {
     
     @Binding var check: Check
     
-    @State var saturationOfPeripheralOxygen: Double = 97
-    @State var saturationOfPeripheralOxygenKnown: Bool = true
+    @State var vasoactiveMedicationCount: Int = 0
+    @State var vasoactiveMedicationCountKnown: Bool = true
     
-    @State var fractionOfInspiredOxygen: Double = 0.21
-    @State var fractionOfInspiredOxygenKnown: Bool = true
+    @State var lactate: Double = 0.8
+    @State var lactateKnown: Bool = true
     
-    @State var isOnRespiratorySupport: Bool = false
-    @State var isOnInvasiveMechanicalVentilation: Bool = false
+    @State var meanArterialPressure: Double = 70
+    @State var meanArterialPressureKnown: Bool = true
     
     enum Field {
-        case saturationOfPeripheralOxygen
-        case fractionOfInspiredOxygen
+        case vasoactiveMedicationCount
+        case lactate
+        case meanArterialPressure
     }
     
     @FocusState var focusedField: Field?
@@ -33,18 +34,56 @@ struct CardiovascularView: View {
             VStack(spacing: 0.0) {
                 VStack(alignment: .leading, spacing: 0.0) {
                     VStack(alignment: .leading) {
-                        Text("SpO₂")
-                        
-                        Text("Oxygen saturation")
-                            .font(.subheadline.smallCaps())
-                            .foregroundStyle(.secondary)
+                        Text("Vasoactive medication count")
                     }
                     
                     HStack(alignment: .firstTextBaseline, spacing: 0.0) {
                         Group {
-                            if saturationOfPeripheralOxygenKnown {
-                                TextField("SpO₂", value: $saturationOfPeripheralOxygen, format: .number.precision(.fractionLength(0)))
-                                    .focused($focusedField, equals: .saturationOfPeripheralOxygen)
+                            if vasoactiveMedicationCountKnown {
+                                TextField("", value: $vasoactiveMedicationCount, format: .number.precision(.fractionLength(0)))
+                                    .focused($focusedField, equals: .vasoactiveMedicationCount)
+                                    .keyboardType(.numberPad)
+                            } else {
+                                TextField("", text: .constant("--"))
+                                    .disabled(true)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .font(.largeTitle)
+                    }
+                    .multilineTextAlignment(.trailing)
+                    .fontWidth(.expanded)
+                    .disabled(!vasoactiveMedicationCountKnown)
+                    
+                    VStack(alignment: .leading) {
+                        Stepper("", value: $vasoactiveMedicationCount, in: 0...10)
+                            .disabled(!vasoactiveMedicationCountKnown)
+                            .controlSize(.large)
+                            .labelsHidden()
+                        
+                        Text("Vasoactive medications include any dose of epinephrine, norepinephrine, dopamine, dobutamine, milrinone, and/or vasopressin (for shock) [(Schlapbach et al., 2024)](https://jamanetwork.com/journals/jama/fullarticle/2814297).")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .padding(.vertical)
+                        
+                        Button(vasoactiveMedicationCountKnown ? "I don't have a count" : "Add a count") {
+                            vasoactiveMedicationCountKnown.toggle()
+                        }
+                        .font(.subheadline)
+                    }
+                }
+                .padding(.bottom)
+                
+                VStack(alignment: .leading, spacing: 0.0) {
+                    VStack(alignment: .leading) {
+                        Text("Lactate")
+                    }
+                    
+                    HStack(alignment: .firstTextBaseline, spacing: 0.0) {
+                        Group {
+                            if lactateKnown {
+                                TextField("", value: $lactate, format: .number.precision(.fractionLength(1)))
+                                    .focused($focusedField, equals: .lactate)
                                     .keyboardType(.numberPad)
                             } else {
                                 TextField("", text: .constant("--"))
@@ -54,27 +93,78 @@ struct CardiovascularView: View {
                         }
                         .font(.largeTitle)
                         
-                        Text("%")
+                        Text("mmol/L")
                             .font(.title2)
-                            .foregroundStyle(saturationOfPeripheralOxygenKnown ? .primary : .secondary)
+                            .foregroundStyle(lactateKnown ? .primary : .secondary)
                     }
                     .multilineTextAlignment(.trailing)
-                    .fontWidth(.expanded).disabled(!saturationOfPeripheralOxygenKnown)
+                    .fontWidth(.expanded)
+                    .disabled(!lactateKnown)
                     
                     VStack(alignment: .leading) {
                         Slider(
-                            value: $saturationOfPeripheralOxygen,
-                            in: 0...100
+                            value: $lactate,
+                            in: 0.5...20
                         )
-                        .disabled(!saturationOfPeripheralOxygenKnown)
+                        .disabled(!lactateKnown)
                         
-                        Text("SpO₂:FIO₂ is only calculated if SpO₂ is 97% or less. [(Schlapbach et al., 2024)](https://jamanetwork.com/journals/jama/fullarticle/2814297).")
+                        Text("Lactate can be arterial or venous [(Schlapbach et al., 2024)](https://jamanetwork.com/journals/jama/fullarticle/2814297).")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                             .padding(.vertical)
                         
-                        Button(saturationOfPeripheralOxygenKnown ? "I don't have SpO₂ values" : "Add SpO₂ value") {
-                            saturationOfPeripheralOxygenKnown.toggle()
+                        Button(lactateKnown ? "I don't have lactate values" : "Add lactate value") {
+                            lactateKnown.toggle()
+                        }
+                        .font(.subheadline)
+                    }
+                }
+                .padding(.bottom)
+                
+                VStack(alignment: .leading, spacing: 0.0) {
+                    VStack(alignment: .leading) {
+                        Text("MAP")
+                        Text("Mean arterial pressure")
+                            .font(.subheadline.smallCaps())
+                            .foregroundStyle(.secondary)
+                    }
+                    
+                    HStack(alignment: .firstTextBaseline, spacing: 0.0) {
+                        Group {
+                            if meanArterialPressureKnown {
+                                TextField("", value: $meanArterialPressure, format: .number.precision(.fractionLength(0)))
+                                    .focused($focusedField, equals: .meanArterialPressure)
+                                    .keyboardType(.numberPad)
+                            } else {
+                                TextField("", text: .constant("--"))
+                                    .disabled(true)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .font(.largeTitle)
+                        
+                        Text("mmHg")
+                            .font(.title2)
+                            .foregroundStyle(meanArterialPressureKnown ? .primary : .secondary)
+                    }
+                    .multilineTextAlignment(.trailing)
+                    .fontWidth(.expanded)
+                    .disabled(!meanArterialPressureKnown)
+                    
+                    VStack(alignment: .leading) {
+                        Slider(
+                            value: $meanArterialPressure,
+                            in: 20...250
+                        )
+                        .disabled(!meanArterialPressureKnown)
+                        
+                        Text("Use measured MAP preferentially (invasive arterial if available or noninvasive oscillometric), and if measured MAP is not available, a calculated MAP (1/3 × systolic + 2/3 × diastolic) may be used as an alternative. [(Schlapbach et al., 2024)](https://jamanetwork.com/journals/jama/fullarticle/2814297).")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .padding(.vertical)
+                        
+                        Button(meanArterialPressureKnown ? "I don't have MAP values" : "Add MAP value") {
+                            meanArterialPressureKnown.toggle()
                         }
                         .font(.subheadline)
                     }
@@ -84,27 +174,23 @@ struct CardiovascularView: View {
             .navigationTitle("Cardiovascular")
             .navigationBarTitleDisplayMode(.inline)
             .onDisappear {
-                if saturationOfPeripheralOxygenKnown {
-                    check.saturationOfPeripheralOxygen = saturationOfPeripheralOxygen
+                if vasoactiveMedicationCountKnown {
+                    check.vasoactiveMedicationCount = vasoactiveMedicationCount
                 }
                 
-                if fractionOfInspiredOxygenKnown {
-                    check.fractionOfInspiredOxygen = fractionOfInspiredOxygen
+                if lactateKnown {
+                    check.lactate = lactate
                 }
                 
-                check.isOnRespiratorySupport = isOnRespiratorySupport
-                check.isOnInvasiveMechanicalVentilation = isOnInvasiveMechanicalVentilation
+                if meanArterialPressureKnown {
+                    check.meanArterialPressure = meanArterialPressure
+                }
             }
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                }
                 
                 ToolbarItem(placement: .confirmationAction) {
                     NavigationLink {
-                        CardiovascularView(check: $check)
+                        CoagulationView(check: $check)
                     } label: {
                         Label(
                             "Next",
@@ -122,17 +208,33 @@ struct CardiovascularView: View {
                         Button("Done") {
                             focusedField = nil
                             
-                            if saturationOfPeripheralOxygen < 0 {
-                                saturationOfPeripheralOxygen = 0
+                            if lactate < 0 {
+                                lactate = 0
                             }
                             
-                            if saturationOfPeripheralOxygen > 100 {
-                                saturationOfPeripheralOxygen = 100
+                            if lactate > 20 {
+                                lactate = 20
+                            }
+                            
+                            if vasoactiveMedicationCount < 0 {
+                                vasoactiveMedicationCount = 0
+                            }
+                            
+                            if vasoactiveMedicationCount > 20 {
+                                vasoactiveMedicationCount = 20
+                            }
+                            
+                            if meanArterialPressure < 0 {
+                                meanArterialPressure = 0
+                            }
+                            
+                            if meanArterialPressure > 250 {
+                                meanArterialPressure = 250
                             }
                         }
                     }
                 }
-        }
+            }
         }
     }
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C66D09DB2B768B00004504F6 /* CheckDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66D09DA2B768B00004504F6 /* CheckDetail.swift */; };
+		C674D8B52B78C4440064684B /* NeurologicalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674D8B42B78C4440064684B /* NeurologicalView.swift */; };
+		C674D8B72B78C4580064684B /* CoagulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674D8B62B78C4580064684B /* CoagulationView.swift */; };
 		C682AAD32B765B190052BE35 /* SepsisCheckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAD22B765B190052BE35 /* SepsisCheckApp.swift */; };
 		C682AAD52B765B190052BE35 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAD42B765B190052BE35 /* ContentView.swift */; };
 		C682AAD92B765B1A0052BE35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C682AAD82B765B1A0052BE35 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		C66D09DA2B768B00004504F6 /* CheckDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDetail.swift; sourceTree = "<group>"; };
+		C674D8B42B78C4440064684B /* NeurologicalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeurologicalView.swift; sourceTree = "<group>"; };
+		C674D8B62B78C4580064684B /* CoagulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoagulationView.swift; sourceTree = "<group>"; };
 		C682AACF2B765B190052BE35 /* SepsisCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SepsisCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C682AAD22B765B190052BE35 /* SepsisCheckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepsisCheckApp.swift; sourceTree = "<group>"; };
 		C682AAD42B765B190052BE35 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				C6BF33862B781678008E243B /* CardiovascularView.swift */,
+				C674D8B62B78C4580064684B /* CoagulationView.swift */,
+				C674D8B42B78C4440064684B /* NeurologicalView.swift */,
 				C682AAD22B765B190052BE35 /* SepsisCheckApp.swift */,
 				C682AAD42B765B190052BE35 /* ContentView.swift */,
 				C66D09DA2B768B00004504F6 /* CheckDetail.swift */,
@@ -277,12 +283,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C674D8B52B78C4440064684B /* NeurologicalView.swift in Sources */,
 				C66D09DB2B768B00004504F6 /* CheckDetail.swift in Sources */,
 				C6BF33872B781678008E243B /* CardiovascularView.swift in Sources */,
 				C682AB002B765B490052BE35 /* Check.swift in Sources */,
 				C6BF33852B77F646008E243B /* RespiratoryView.swift in Sources */,
 				C682AB022B7688330052BE35 /* CheckThumbnail.swift in Sources */,
 				C682AAD52B765B190052BE35 /* ContentView.swift in Sources */,
+				C674D8B72B78C4580064684B /* CoagulationView.swift in Sources */,
 				C682AAD32B765B190052BE35 /* SepsisCheckApp.swift in Sources */,
 				C6BF33832B77E7DC008E243B /* AgeBandView.swift in Sources */,
 			);

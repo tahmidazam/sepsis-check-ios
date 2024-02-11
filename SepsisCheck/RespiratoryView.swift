@@ -43,7 +43,7 @@ struct RespiratoryView: View {
                     HStack(alignment: .firstTextBaseline, spacing: 0.0) {
                         Group {
                             if saturationOfPeripheralOxygenKnown {
-                                TextField("SpO₂", value: $saturationOfPeripheralOxygen, format: .number.precision(.fractionLength(0)))
+                                TextField("", value: $saturationOfPeripheralOxygen, format: .number.precision(.fractionLength(0)))
                                     .focused($focusedField, equals: .saturationOfPeripheralOxygen)
                                     .keyboardType(.numberPad)
                             } else {
@@ -68,7 +68,7 @@ struct RespiratoryView: View {
                         )
                         .disabled(!saturationOfPeripheralOxygenKnown)
                         
-                        Text("SpO₂:FIO₂ is only calculated if SpO₂ is 97% or less. [(Schlapbach et al., 2024)](https://jamanetwork.com/journals/jama/fullarticle/2814297).")
+                        Text("SpO₂:FIO₂ is only calculated if SpO₂ is 97% or less [(Schlapbach et al., 2024)](https://jamanetwork.com/journals/jama/fullarticle/2814297).")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                             .padding(.vertical)
@@ -94,7 +94,7 @@ struct RespiratoryView: View {
                         
                         Group {
                             if fractionOfInspiredOxygenKnown {
-                                TextField("FipO₂", value: $fractionOfInspiredOxygen, format: .number.precision(.fractionLength(2)))
+                                TextField("", value: $fractionOfInspiredOxygen, format: .number.precision(.fractionLength(2)))
                                     .focused($focusedField, equals: .fractionOfInspiredOxygen)
                                     .keyboardType(.numberPad)
                             } else {
@@ -176,12 +176,6 @@ struct RespiratoryView: View {
                 check.isOnInvasiveMechanicalVentilation = isOnInvasiveMechanicalVentilation
             }
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                }
-                
                 ToolbarItem(placement: .confirmationAction) {
                     NavigationLink {
                         CardiovascularView(check: $check)

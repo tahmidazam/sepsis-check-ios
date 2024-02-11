@@ -26,7 +26,7 @@ struct SepsisCheckApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                RespiratoryView(check: .constant(Check()))
+                AgeBandView(check: .constant(Check()))
             }
         }
         .modelContainer(sharedModelContainer)
