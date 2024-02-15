@@ -165,7 +165,7 @@ struct RespiratoryView: View {
             .navigationBarTitleDisplayMode(.inline)
             .onDisappear {
                 if saturationOfPeripheralOxygenKnown {
-                    check.saturationOfPeripheralOxygen = saturationOfPeripheralOxygen
+                    check.saturationOfPeripheralOxygen = saturationOfPeripheralOxygen / 100
                 }
                 
                 if fractionOfInspiredOxygenKnown {
@@ -180,11 +180,7 @@ struct RespiratoryView: View {
                     NavigationLink {
                         CardiovascularView(check: $check)
                     } label: {
-                        Label(
-                            "Next",
-                            systemImage: "heart"
-                        )
-                        .labelStyle(.titleOnly)
+                        Text("Next")
                     }
                     
                 }

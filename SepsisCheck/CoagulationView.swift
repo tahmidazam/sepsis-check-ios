@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct CoagulationView: View {
-    @Environment(\.dismiss) var dismiss
-    
     @Binding var check: Check
     
     @State var platelets: Double = 200
@@ -21,7 +19,7 @@ struct CoagulationView: View {
     @State var dDimer: Double = 0.4
     @State var dDimerKnown: Bool = true
     
-    @State var fibrinogen: Double = 1
+    @State var fibrinogen: Double = 300
     @State var fibrinogenKnown: Bool = true
     
     
@@ -185,7 +183,7 @@ struct CoagulationView: View {
                     HStack(alignment: .firstTextBaseline, spacing: 0.0) {
                         Group {
                             if fibrinogenKnown {
-                                TextField("", value: $fibrinogen, format: .number.precision(.fractionLength(1)))
+                                TextField("", value: $fibrinogen, format: .number.precision(.fractionLength(0)))
                                     .focused($focusedField, equals: .fibrinogen)
                                     .keyboardType(.numberPad)
                             } else {
@@ -207,7 +205,7 @@ struct CoagulationView: View {
                     VStack(alignment: .leading) {
                         Slider(
                             value: $fibrinogen,
-                            in: 0.1...10
+                            in: 10...1000
                         )
                         .disabled(!fibrinogenKnown)
                         
@@ -242,13 +240,9 @@ struct CoagulationView: View {
                 
                 ToolbarItem(placement: .confirmationAction) {
                     NavigationLink {
-                        CardiovascularView(check: $check)
+                        NeurologicalView(check: $check)
                     } label: {
-                        Label(
-                            "Next",
-                            systemImage: "heart"
-                        )
-                        .labelStyle(.titleOnly)
+                        Text("Next")
                     }
                     
                 }
@@ -284,12 +278,12 @@ struct CoagulationView: View {
                                 dDimer = 4
                             }
                             
-                            if fibrinogen < 0.1 {
-                                fibrinogen = 0.1
+                            if fibrinogen < 10 {
+                                fibrinogen = 10
                             }
                             
-                            if fibrinogen > 10 {
-                                fibrinogen = 10
+                            if fibrinogen > 1000 {
+                                fibrinogen = 1000
                             }
                         }
                     }

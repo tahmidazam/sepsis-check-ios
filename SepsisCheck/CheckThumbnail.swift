@@ -19,9 +19,15 @@ struct CheckThumbnail: View {
             
             Spacer()
             
-            Text(check.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+            Text(check.timestamp, format: .dateTime)
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
+            
+//            if let formattedTimeDelta = RelativeDateTimeFormatter().string(for: check.timestamp) {
+//                Text(formattedTimeDelta)
+//                    .font(.subheadline)
+//                    .foregroundStyle(.secondary)
+//            }
         }
     }
 }

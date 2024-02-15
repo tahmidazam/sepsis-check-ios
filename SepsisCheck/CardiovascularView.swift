@@ -192,11 +192,7 @@ struct CardiovascularView: View {
                     NavigationLink {
                         CoagulationView(check: $check)
                     } label: {
-                        Label(
-                            "Next",
-                            systemImage: "heart"
-                        )
-                        .labelStyle(.titleOnly)
+                        Text("Next")
                     }
                     
                 }

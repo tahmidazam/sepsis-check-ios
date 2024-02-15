@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C66D09DB2B768B00004504F6 /* CheckDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66D09DA2B768B00004504F6 /* CheckDetail.swift */; };
+		C66FB42E2B7E8BF1006D7727 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FB42D2B7E8BF1006D7727 /* HomeView.swift */; };
+		C66FB4302B7EB45F006D7727 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FB42F2B7EB45F006D7727 /* AppModel.swift */; };
 		C674D8B52B78C4440064684B /* NeurologicalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674D8B42B78C4440064684B /* NeurologicalView.swift */; };
 		C674D8B72B78C4580064684B /* CoagulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674D8B62B78C4580064684B /* CoagulationView.swift */; };
 		C682AAD32B765B190052BE35 /* SepsisCheckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAD22B765B190052BE35 /* SepsisCheckApp.swift */; };
-		C682AAD52B765B190052BE35 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAD42B765B190052BE35 /* ContentView.swift */; };
 		C682AAD92B765B1A0052BE35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C682AAD82B765B1A0052BE35 /* Assets.xcassets */; };
 		C682AADD2B765B1A0052BE35 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C682AADC2B765B1A0052BE35 /* Preview Assets.xcassets */; };
 		C682AAE72B765B1A0052BE35 /* SepsisCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C682AAE62B765B1A0052BE35 /* SepsisCheckTests.swift */; };
@@ -43,11 +44,12 @@
 
 /* Begin PBXFileReference section */
 		C66D09DA2B768B00004504F6 /* CheckDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDetail.swift; sourceTree = "<group>"; };
+		C66FB42D2B7E8BF1006D7727 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C66FB42F2B7EB45F006D7727 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		C674D8B42B78C4440064684B /* NeurologicalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeurologicalView.swift; sourceTree = "<group>"; };
 		C674D8B62B78C4580064684B /* CoagulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoagulationView.swift; sourceTree = "<group>"; };
 		C682AACF2B765B190052BE35 /* SepsisCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SepsisCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C682AAD22B765B190052BE35 /* SepsisCheckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepsisCheckApp.swift; sourceTree = "<group>"; };
-		C682AAD42B765B190052BE35 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C682AAD82B765B1A0052BE35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C682AADA2B765B1A0052BE35 /* SepsisCheck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SepsisCheck.entitlements; sourceTree = "<group>"; };
 		C682AADC2B765B1A0052BE35 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -115,12 +117,13 @@
 				C674D8B62B78C4580064684B /* CoagulationView.swift */,
 				C674D8B42B78C4440064684B /* NeurologicalView.swift */,
 				C682AAD22B765B190052BE35 /* SepsisCheckApp.swift */,
-				C682AAD42B765B190052BE35 /* ContentView.swift */,
 				C66D09DA2B768B00004504F6 /* CheckDetail.swift */,
 				C682AB012B7688330052BE35 /* CheckThumbnail.swift */,
 				C682AAFF2B765B490052BE35 /* Check.swift */,
 				C6BF33822B77E7DC008E243B /* AgeBandView.swift */,
 				C6BF33842B77F646008E243B /* RespiratoryView.swift */,
+				C66FB42D2B7E8BF1006D7727 /* HomeView.swift */,
+				C66FB42F2B7EB45F006D7727 /* AppModel.swift */,
 				C682AAD82B765B1A0052BE35 /* Assets.xcassets */,
 				C682AADA2B765B1A0052BE35 /* SepsisCheck.entitlements */,
 				C682AADB2B765B1A0052BE35 /* Preview Content */,
@@ -286,10 +289,11 @@
 				C674D8B52B78C4440064684B /* NeurologicalView.swift in Sources */,
 				C66D09DB2B768B00004504F6 /* CheckDetail.swift in Sources */,
 				C6BF33872B781678008E243B /* CardiovascularView.swift in Sources */,
+				C66FB4302B7EB45F006D7727 /* AppModel.swift in Sources */,
 				C682AB002B765B490052BE35 /* Check.swift in Sources */,
 				C6BF33852B77F646008E243B /* RespiratoryView.swift in Sources */,
+				C66FB42E2B7E8BF1006D7727 /* HomeView.swift in Sources */,
 				C682AB022B7688330052BE35 /* CheckThumbnail.swift in Sources */,
-				C682AAD52B765B190052BE35 /* ContentView.swift in Sources */,
 				C674D8B72B78C4580064684B /* CoagulationView.swift in Sources */,
 				C682AAD32B765B190052BE35 /* SepsisCheckApp.swift in Sources */,
 				C6BF33832B77E7DC008E243B /* AgeBandView.swift in Sources */,

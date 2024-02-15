@@ -10,10 +10,11 @@ import SwiftData
 import SwiftUI
 
 @Model
-final class Check {
+final class Check: Identifiable {
+    @Attribute(.ephemeral) var id: Date { timestamp }
     
     /// The time at which the check was created.
-    var timestamp: Date = Date()
+    @Attribute(.unique) var timestamp: Date = Date()
     
     /// The date of birth of the individual.
     var dateOfBirth: Date?
@@ -85,11 +86,8 @@ final class Check {
     /// The Glasgow Coma Scale score measures level of consciousness based on verbal, eye, and motor response (range, 3-15, with a higher score indicating better neurological function) (Schlapbach et al., 2024).
     var glasgowComaScale: Int?
     
-    /// Whether the individual has reactive pupils.
-    var hasReactivePupils: Bool?
-    
-    /// Whether the individual has fixed pupils bilaterally.
-    var hasFixedPupilsBilaterally: Bool?
+    /// The state of the individual's pupils.
+    var pupilState: PupilState?
     
     // MARK: Initialiser
     
@@ -108,8 +106,7 @@ final class Check {
         dDimer: Double? = nil,
         fibrinogen: Double? = nil,
         glasgowComaScale: Int? = nil,
-        hasReactivePupils: Bool? = nil,
-        hasFixedPupilsBilaterally: Bool? = nil
+        pupilState: PupilState? = nil
     ) {
         self.dateOfBirth = dateOfBirth
         self.ageBand = ageBand
@@ -130,8 +127,7 @@ final class Check {
         self.dDimer = dDimer
         self.fibrinogen = fibrinogen
         self.glasgowComaScale = glasgowComaScale
-        self.hasReactivePupils = hasReactivePupils
-        self.hasFixedPupilsBilaterally = hasFixedPupilsBilaterally
+        self.pupilState = pupilState
     }
     
     // MARK: Computed properties
@@ -370,27 +366,21 @@ final class Check {
     ///
     /// Logic according to Table 1 of Schlapbach et al., 2024.
     var neurologicalScore: Int? {
-        if let hasFixedPupilsBilaterally {
-            if hasFixedPupilsBilaterally {
-                return 2
-            }
-        }
-        
-        guard let glasgowComaScale else {
+        guard
+            let pupilState,
+            let glasgowComaScale else {
             return nil
         }
         
-        if glasgowComaScale >= 10 {
+        if pupilState == .fixedBilaterally {
             return 2
         }
         
-        if let hasReactivePupils {
-            if hasReactivePupils {
-                return 0
-            }
+        if glasgowComaScale <= 10 {
+            return 1
         }
         
-        return nil
+        return 0
     }
     
     /// The Phenoix Sepsis Score, combining respiratory, cardiovascular, coagulation, and neurological components. Returns nil if insufficient parameters are provided.
@@ -456,6 +446,14 @@ final class Check {
             case .septicShock: return .red
             }
         }
+    }
+    
+    /// The state of an individual's pupils.
+    enum PupilState: String, Codable, CaseIterable, Identifiable {
+        case fixedBilaterally = "Pupils fixed bilaterally"
+        case reactive = "Pupils reactive"
+        
+        var id: Int { hashValue }
     }
     
     /// The age band of the individual, split into classes according to Table 1 of Schlapbach et al., 2024.

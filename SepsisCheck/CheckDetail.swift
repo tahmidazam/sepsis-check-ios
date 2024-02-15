@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct CheckDetail: View {
-    var check: Check
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var appModel: AppModel
+    @Binding var check: Check
     
     var body: some View {
         List {
@@ -92,7 +94,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.vasoactiveMedicationCount?.formatted(.number) ?? "-")
+                    Text(check.vasoactiveMedicationCount?.formatted(.number).appending(" (\(check.vasoactiveMedicineScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 
@@ -101,7 +103,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.lactate?.formatted(.number).appending(" mmol/L") ?? "-")
+                    Text(check.lactate?.formatted(.number).appending(" mmol/L").appending(" (\(check.lactateScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 
@@ -110,7 +112,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.meanArterialPressure?.formatted(.number).appending(" mmHg") ?? "-")
+                    Text(check.meanArterialPressure?.formatted(.number).appending(" mmHg").appending(" (\(check.meanArterialPressureScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
             } header: {
@@ -129,7 +131,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.platelets?.formatted(.number).appending(" × 10³/µL") ?? "-")
+                    Text(check.platelets?.formatted(.number).appending(" × 10³/µL").appending(" (\(check.plateletScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 
@@ -138,7 +140,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.internationalNormalisedRatio?.formatted(.number) ?? "-")
+                    Text(check.internationalNormalisedRatio?.formatted(.number).appending(" (\(check.internationalNormalisedRatioScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 
@@ -147,7 +149,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.dDimer?.formatted(.number).appending(" mg/L FEU") ?? "-")
+                    Text(check.dDimer?.formatted(.number).appending(" mg/L FEU").appending(" (\(check.dDimerScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 
@@ -156,7 +158,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.fibrinogen?.formatted(.number).appending(" mg/dL") ?? "-")
+                    Text(check.fibrinogen?.formatted(.number).appending(" mg/dL").appending(" (\(check.fibrinogenScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
             } header: {
@@ -179,17 +181,10 @@ struct CheckDetail: View {
                         .foregroundStyle(.secondary)
                 }
                 
-                if let hasReactivePupils = check.hasReactivePupils {
-                    Text(hasReactivePupils ? "Pupils reactive" : "Pupils unreactive")
+                if let pupilState = check.pupilState {
+                    Text(pupilState == .reactive ? "Pupils reactive" : "Pupils fixed bilaterally")
                 } else {
                     Text("No data on pupil reaction")
-                        .foregroundStyle(.secondary)
-                }
-                
-                if let hasFixedPupilsBilaterally = check.hasFixedPupilsBilaterally {
-                    Text(hasFixedPupilsBilaterally ? "Pupils fixed bilaterally" : "Pupils not fixed bilaterally")
-                } else {
-                    Text("No data on pupil fixation")
                         .foregroundStyle(.secondary)
                 }
             } header: {
@@ -207,5 +202,15 @@ struct CheckDetail: View {
 }
 
 #Preview {
-    CheckDetail(check: Check(ageBand: Check.AgeBand.oneToElevenMonths, saturationOfPeripheralOxygen: 0.87, fractionOfInspiredOxygen: 0.98, isOnRespiratorySupport: false, isOnInvasiveMechanicalVentilation: true))
+    CheckDetail(
+        check: .constant(
+            Check(
+                ageBand: Check.AgeBand.oneToElevenMonths,
+                saturationOfPeripheralOxygen: 0.87,
+                fractionOfInspiredOxygen: 0.98,
+                isOnRespiratorySupport: false,
+                isOnInvasiveMechanicalVentilation: true
+            )
+        )
+    )
 }
