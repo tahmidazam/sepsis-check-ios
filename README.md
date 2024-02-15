@@ -18,8 +18,8 @@ Features:
 - Offline storage of check and diagnosis history.
 
 Planned features:
-- Export of diagnosis to `.csv`.
-- Export of diagnosis to `.pdf`.
+- Export of diagnoses to `.csv`.
+- Export of diagnoses to `.pdf`.
 - Bar-chart visualisation of the contribution of each component to the total score.
 - Optical character recognition implementation of arterial blood gas reports.
 
