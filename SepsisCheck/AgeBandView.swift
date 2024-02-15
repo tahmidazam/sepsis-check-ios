@@ -112,7 +112,7 @@ struct AgeBandView: View {
                 }
                 .padding()
             }
-            .navigationTitle("New Check")
+            .navigationTitle("Age")
             .navigationBarTitleDisplayMode(.inline)
             .onDisappear {
                 if inputMethod == .dateOfBirthEntry {

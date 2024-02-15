@@ -442,7 +442,7 @@ final class Check: Identifiable {
             switch self {
             case .noDiagnosis: return .primary
             case .noSepsis: return .green
-            case .sepsis: return .red
+            case .sepsis: return .orange
             case .septicShock: return .red
             }
         }

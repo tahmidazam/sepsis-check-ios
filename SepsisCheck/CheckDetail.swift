@@ -46,7 +46,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.saturationOfPeripheralOxygen?.formatted(.percent) ?? "-")
+                    Text(check.saturationOfPeripheralOxygen?.formatted(.percent.precision(.fractionLength(0))) ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 
@@ -55,7 +55,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.fractionOfInspiredOxygen?.formatted(.number) ?? "-")
+                    Text(check.fractionOfInspiredOxygen?.formatted(.number.precision(.fractionLength(2))) ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 
@@ -64,7 +64,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.saturationToFractionRatio?.formatted(.number) ?? "-")
+                    Text(check.saturationToFractionRatio?.formatted(.number.precision(.fractionLength(2))) ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 
@@ -94,7 +94,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.vasoactiveMedicationCount?.formatted(.number).appending(" (\(check.vasoactiveMedicineScore?.formatted() ?? "-"))") ?? "-")
+                    Text(check.vasoactiveMedicationCount?.formatted(.number.precision(.fractionLength(0))).appending(" (\(check.vasoactiveMedicineScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 
@@ -103,7 +103,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.lactate?.formatted(.number).appending(" mmol/L").appending(" (\(check.lactateScore?.formatted() ?? "-"))") ?? "-")
+                    Text(check.lactate?.formatted(.number.precision(.fractionLength(1))).appending(" mmol/L").appending(" (\(check.lactateScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 
@@ -112,7 +112,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.meanArterialPressure?.formatted(.number).appending(" mmHg").appending(" (\(check.meanArterialPressureScore?.formatted() ?? "-"))") ?? "-")
+                    Text(check.meanArterialPressure?.formatted(.number.precision(.fractionLength(0))).appending(" mmHg").appending(" (\(check.meanArterialPressureScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
             } header: {
@@ -131,7 +131,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.platelets?.formatted(.number).appending(" × 10³/µL").appending(" (\(check.plateletScore?.formatted() ?? "-"))") ?? "-")
+                    Text(check.platelets?.formatted(.number.precision(.fractionLength(0))).appending(" × 10³/µL").appending(" (\(check.plateletScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 
@@ -140,7 +140,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.internationalNormalisedRatio?.formatted(.number).appending(" (\(check.internationalNormalisedRatioScore?.formatted() ?? "-"))") ?? "-")
+                    Text(check.internationalNormalisedRatio?.formatted(.number.precision(.fractionLength(1))).appending(" (\(check.internationalNormalisedRatioScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 
@@ -149,7 +149,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.dDimer?.formatted(.number).appending(" mg/L FEU").appending(" (\(check.dDimerScore?.formatted() ?? "-"))") ?? "-")
+                    Text(check.dDimer?.formatted(.number.precision(.fractionLength(1))).appending(" mg/L FEU").appending(" (\(check.dDimerScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 
@@ -158,7 +158,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.fibrinogen?.formatted(.number).appending(" mg/dL").appending(" (\(check.fibrinogenScore?.formatted() ?? "-"))") ?? "-")
+                    Text(check.fibrinogen?.formatted(.number.precision(.fractionLength(1))).appending(" mg/dL").appending(" (\(check.fibrinogenScore?.formatted() ?? "-"))") ?? "-")
                         .foregroundStyle(.secondary)
                 }
             } header: {
@@ -177,7 +177,7 @@ struct CheckDetail: View {
                     
                     Spacer()
                     
-                    Text(check.glasgowComaScale?.formatted(.number) ?? "-")
+                    Text(check.glasgowComaScale?.formatted(.number.precision(.fractionLength(0))) ?? "-")
                         .foregroundStyle(.secondary)
                 }
                 

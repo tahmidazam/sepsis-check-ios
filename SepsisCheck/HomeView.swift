@@ -11,12 +11,12 @@ import SwiftData
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @StateObject var appModel: AppModel = .init()
-    @Query private var checks: [Check]
+    @Query(sort: \Check.timestamp, order: .reverse) private var checks: [Check]
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(checks.sorted(by: { $0.timestamp > $1.timestamp })) { check in
+                ForEach(checks) { check in
                     NavigationLink {
                         CheckDetail(check: .constant(check))
                     } label: {
