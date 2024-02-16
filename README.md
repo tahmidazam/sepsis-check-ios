@@ -31,9 +31,4 @@ Works on iOS 17.2 and above.
 
 ## Acknowledgements
 
-- **Dr David Inwald**
-Emmanuel College, University of Cambridge
-
----
-**Tahmid Azam**
-tahmid_azam@icloud.com
+- **Dr D. Inwald**; Emmanuel College, University of Cambridge
