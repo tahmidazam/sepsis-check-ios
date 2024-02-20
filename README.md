@@ -18,8 +18,8 @@ Features:
 - Offline storage of check and diagnosis history.
 
 Planned features:
-- Export of diagnosis to `.csv`.
-- Export of diagnosis to `.pdf`.
+- Export of diagnoses to `.csv`.
+- Export of diagnoses to `.pdf`.
 - Bar-chart visualisation of the contribution of each component to the total score.
 - Optical character recognition implementation of arterial blood gas reports.
 
@@ -31,9 +31,4 @@ Works on iOS 17.2 and above.
 
 ## Acknowledgements
 
-- **Dr David Inwald**
-Emmanuel College, University of Cambridge
-
----
-**Tahmid Azam**
-tahmid_azam@icloud.com
+- **Dr D. Inwald**; Emmanuel College, University of Cambridge
