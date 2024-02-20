@@ -33,6 +33,7 @@ struct HomeView: View {
                     Spacer()
                     
                     Button("New Check", systemImage: "plus") {
+                        appModel.check = Check()
                         appModel.sheet = .newCheck
                     }
                 }

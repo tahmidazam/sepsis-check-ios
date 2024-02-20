@@ -68,10 +68,7 @@ struct RespiratoryView: View {
                         )
                         .disabled(!saturationOfPeripheralOxygenKnown)
                         
-                        Text("SpO₂:FIO₂ is only calculated if SpO₂ is 97% or less [(Schlapbach et al., 2024)](https://jamanetwork.com/journals/jama/fullarticle/2814297).")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            .padding(.vertical)
+                        
                         
                         Button(saturationOfPeripheralOxygenKnown ? "I don't have SpO₂ values" : "Add SpO₂ value") {
                             saturationOfPeripheralOxygenKnown.toggle()
@@ -136,6 +133,11 @@ struct RespiratoryView: View {
                     .fontWidth(.expanded)
                 }
                 .padding(.vertical)
+                
+                Text("SpO₂:FIO₂ is only calculated if SpO₂ is 97% or less [(Schlapbach et al., 2024)](https://jamanetwork.com/journals/jama/fullarticle/2814297).")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .padding(.vertical)
                 
                 Divider()
                     .padding(.bottom)

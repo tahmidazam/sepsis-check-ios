@@ -111,8 +111,6 @@ struct NeurologicalView: View {
                             .toolbar {
                                 ToolbarItem(placement: .confirmationAction) {
                                     Button("Done") {
-                                        check = Check()
-                                        
                                         appModel.sheet = nil
                                     }
                                 }

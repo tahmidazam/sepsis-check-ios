@@ -23,6 +23,7 @@
 		C6BF33832B77E7DC008E243B /* AgeBandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF33822B77E7DC008E243B /* AgeBandView.swift */; };
 		C6BF33852B77F646008E243B /* RespiratoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF33842B77F646008E243B /* RespiratoryView.swift */; };
 		C6BF33872B781678008E243B /* CardiovascularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF33862B781678008E243B /* CardiovascularView.swift */; };
+		C6C4057C2B8130D7008D1149 /* CheckBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4057B2B8130D7008D1149 /* CheckBarChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		C6BF33822B77E7DC008E243B /* AgeBandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeBandView.swift; sourceTree = "<group>"; };
 		C6BF33842B77F646008E243B /* RespiratoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespiratoryView.swift; sourceTree = "<group>"; };
 		C6BF33862B781678008E243B /* CardiovascularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardiovascularView.swift; sourceTree = "<group>"; };
+		C6C4057B2B8130D7008D1149 /* CheckBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBarChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				C6BF33842B77F646008E243B /* RespiratoryView.swift */,
 				C66FB42D2B7E8BF1006D7727 /* HomeView.swift */,
 				C66FB42F2B7EB45F006D7727 /* AppModel.swift */,
+				C6C4057B2B8130D7008D1149 /* CheckBarChart.swift */,
 				C682AAD82B765B1A0052BE35 /* Assets.xcassets */,
 				C682AADA2B765B1A0052BE35 /* SepsisCheck.entitlements */,
 				C682AADB2B765B1A0052BE35 /* Preview Content */,
@@ -297,6 +300,7 @@
 				C674D8B72B78C4580064684B /* CoagulationView.swift in Sources */,
 				C682AAD32B765B190052BE35 /* SepsisCheckApp.swift in Sources */,
 				C6BF33832B77E7DC008E243B /* AgeBandView.swift in Sources */,
+				C6C4057C2B8130D7008D1149 /* CheckBarChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,7 +474,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -508,7 +512,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
