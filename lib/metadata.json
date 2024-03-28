@@ -4,7 +4,7 @@
   "pluginVersion": "1.8.01",
   "validBodyClasses": "publish css-settings-manager native-scrollbars theme-light show-inline-title",
   "useCustomHeadContent": false,
-  "useCustomFavicon": false,
+  "useCustomFavicon": true,
   "files": [
     "media/Image 3.jpeg",
     "media/Image 2.jpeg",
